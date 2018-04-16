@@ -95,7 +95,7 @@ double optFunc(const std::vector<double> &x, std::vector<double> &grad, void *my
     Eigen::Matrix<double, 6, 1> mGrad = optParams->P.transpose()*(optParams->P*X - optParams->b);
     Eigen::VectorXd::Map(&grad[0], mGrad.size()) = mGrad;
   }
-  return (0.5 * ((optParams->P*X - optParams->b).norm()));
+  return (0.5 * pow((optParams->P*X - optParams->b).norm(), 2));
 }
 
 //==============================================================================
